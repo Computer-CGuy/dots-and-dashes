@@ -2,3 +2,14 @@ body{
     background-color: whitesmoke;
     margin: 20;
 }
+line.active{
+    transition: 0.3s;
+}
+line.active:hover{
+    stroke: rgb(0,10,225);
+    z-index: 100;
+    cursor: pointer;
+}
+svg.canvas{
+    background: white;
+}

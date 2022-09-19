@@ -1,11 +1,28 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head><link rel="stylesheet" href="{% static 'style.css' %}"></head>
+<head>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="{% static 'script.js' %}"></script>
+</head>
 <body>
+<p>Welcome to my first Django project!</p><br>
+<CENTER>
+<svg width="{{canvasWidth}}" height="{{canvasHeight}}" class="canvas" >
+  <g class="top">
+    {% for key,line in lines.items %} 
+    <line class="ln active" linecap="round" id="line{{key}}" x1="{{line.x1}}" y1="{{line.y1}}" x2="{{line.x2}}" y2="{{line.y2}}" stroke="rgb(0,200,200)" stroke-width="10px" />
+    <!-- {{line.x1}} -->
+    {% endfor %}
+</g>
 
-<h1>Hello World!</h1>
-<p>Welcome to my first Django project!</p>
+    {% for i in list %}
+    <circle cx="{{i.0}}" cy="{{i.1}}" r="4.5" stroke="black" stroke-width="3" fill="black" />
+    {% endfor %}
 
+  </svg>  
+</CENTER>
 </body>
+
 </html>
