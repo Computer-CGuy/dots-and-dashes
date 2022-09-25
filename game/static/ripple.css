@@ -1,0 +1,42 @@
+.ripple{
+    height: 100px;
+    width: 100px;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 100%;
+    position: fixed;
+    opacity: 0;
+    animation: grow 1s ease-out;
+    z-index: -1;
+}
+.ripple.congrats{
+    background: url("https://cdn.iconscout.com/icon/free/png-256/confetti-1972919-1663100.png");
+    background-size: cover;
+    opacity: 0;
+}
+@keyframes grow {
+    0% {
+      scale: 0;
+      opacity: 0.6;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    100% {
+      scale: 2;
+      opacity: 0;
+    }
+  }
+
+@keyframes grow2 {
+0% {
+    scale: 0;
+    opacity: 1;
+}
+50% {
+    opacity: 0.9;
+}
+100% {
+    scale: 0.7;
+    opacity: 0;
+}
+}

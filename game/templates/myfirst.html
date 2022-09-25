@@ -3,22 +3,46 @@
 <html>
 <head>
   <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="{% static 'ripple.css' %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+  {% autoescape off %} 
+    scoreX = 0
+    scoreO = 0
+    whoseMove = "x"
+
+    boxes={{boxes}}
+   {% endautoescape  %} 
+  </script>
+
   <script src="{% static 'script.js' %}"></script>
 </head>
-<body>
-<p>Welcome to my first Django project!</p><br>
+<body class="xmove">
+  <!-- {% autoescape off %} -->
+  <!-- {{box}} -->
+  <!-- {% endautoescape  %} -->
+<p class="log">Welcome to my first Django project!</p>
+<div class="ripple" id="rip"></div>
+<div class="ripple congrats"></div>
+<span class="score">X Score:  <span class="scoreX">12</span></span>
+|||
+<span class="score">O Score:  <span class="scoreO">12</span></span>
+<br>
 <CENTER>
 <svg width="{{canvasWidth}}" height="{{canvasHeight}}" class="canvas" >
+  <g id="boxDraw">
+
+  </g>
   <g class="top">
     {% for key,line in lines.items %} 
-    <line class="ln active" linecap="round" id="line{{key}}" x1="{{line.x1}}" y1="{{line.y1}}" x2="{{line.x2}}" y2="{{line.y2}}" stroke="rgb(0,200,200)" stroke-width="10px" />
+    <line class="ln active xh" linecap="round"\
+     id="line{{key}}" x1="{{line.x1}}" y1="{{line.y1}}" x2="{{line.x2}}" y2="{{line.y2}}" />
     <!-- {{line.x1}} -->
     {% endfor %}
-</g>
+  </g>
 
     {% for i in list %}
-    <circle cx="{{i.0}}" cy="{{i.1}}" r="4.5" stroke="black" stroke-width="3" fill="black" />
+    <circle class="dots" cx="{{i.0}}" cy="{{i.1}}" r="4.5" />
     {% endfor %}
 
   </svg>  
